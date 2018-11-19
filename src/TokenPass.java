@@ -1,8 +1,8 @@
-public class TokenPass {
+class TokenPass {
     private int[] board;
     private int currentPlayer;
 
-    public TokenPass(int playerCount) {
+    TokenPass(int playerCount) {
         board = new int[playerCount];
         for (int i = 0; i < playerCount; i++) {
             board[i] = 1 + (int) (10 * Math.random());
@@ -10,7 +10,7 @@ public class TokenPass {
         currentPlayer = (int) (playerCount * Math.random());
     }
 
-    public void distributeCurrentPlayerTokens() {
+    void distributeCurrentPlayerTokens() {
         int nextPlayer = currentPlayer;
         int numToDistribute = board[currentPlayer];
         board[currentPlayer] = 0;
@@ -30,7 +30,16 @@ public class TokenPass {
         return -1;
     }
 
-    String printBoard() {
-        for (int i : )
+    void printBoard() {
+        String out = "";
+        for (int i = 0; i < board.length; i++) {
+            out += "Player " + i + ": " + board[i] + " ";
+        }
+        System.out.println(out);
+    }
+
+    void nextPlayer() {
+        currentPlayer = (currentPlayer + 1) % board.length;
+        System.out.println("Current Player: " + currentPlayer);
     }
 }

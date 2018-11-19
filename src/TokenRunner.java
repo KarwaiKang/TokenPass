@@ -1,6 +1,6 @@
 public class TokenRunner {
     public static void main(String[] args) {
-        TokenPass game1 = new TokenPass(0);
+        TokenPass game1 = new TokenPass(6);
 
         while (game1.gameOver() < 0) {
             game1.printBoard();
